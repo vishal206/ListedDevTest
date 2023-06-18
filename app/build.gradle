@@ -86,4 +86,15 @@ dependencies {
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    // Pager - Tab Layout
+    implementation 'com.google.accompanist:accompanist-pager:0.21-0-beta'
+    implementation 'com.google.accompanist:accompanist-pager-indicators:0.21.0-beta'
+    implementation 'androidx.compose.foundation:foundation:1.1.1'
+
+    // Coil - Image from url
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    // Madeapps - graphs
+    implementation 'com.github.madrapps:plot:0.1.1'
 }
