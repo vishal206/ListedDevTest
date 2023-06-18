@@ -100,7 +100,7 @@ fun DashboardScreen(
                 Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
 
-            ){
+                ) {
                 Text(
                     text = "Dashboard",
                     style = MaterialTheme.typography.titleMedium,
@@ -115,7 +115,7 @@ fun DashboardScreen(
 
                 ) {
                     Image(
-                        painter = painterResource(id =R.drawable.wrench),
+                        painter = painterResource(id = R.drawable.wrench),
                         contentDescription = "setting",
                         modifier = Modifier
                             .size(42.dp)
@@ -209,7 +209,7 @@ fun DashboardScreen(
                                 style = MaterialTheme.typography.bodyMedium,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
-                                    .padding(0.dp,0.dp,5.dp,0.dp),
+                                    .padding(0.dp, 0.dp, 5.dp, 0.dp),
                                 color = textPrimary
 
                             )
@@ -249,9 +249,11 @@ fun DashboardScreen(
                             pinBackground
                         )
                         Spacer(modifier = Modifier.size(15.dp))
-                        DashboardCard("Top Source", state.dashboardDetail?.top_source.toString(),
+                        DashboardCard(
+                            "Top Source", state.dashboardDetail?.top_source.toString(),
                             R.drawable.globe,
-                            globeBackground)
+                            globeBackground
+                        )
                         Spacer(modifier = Modifier.size(15.dp))
                         DashboardCard(
                             "Total Clicks",
@@ -260,9 +262,11 @@ fun DashboardScreen(
                             clickBackground
                         )
                         Spacer(modifier = Modifier.size(15.dp))
-                        DashboardCard("Total Links", state.dashboardDetail?.total_links.toString(),
+                        DashboardCard(
+                            "Total Links", state.dashboardDetail?.total_links.toString(),
                             R.drawable.click,
-                            clickBackground)
+                            clickBackground
+                        )
 
                     }
 
@@ -296,7 +300,7 @@ fun DashboardScreen(
                         style = MaterialTheme.typography.titleSmall,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .padding(14.dp,5.dp),
+                            .padding(14.dp, 5.dp),
                         color = textPrimary
 
                     )
@@ -308,11 +312,10 @@ fun DashboardScreen(
                     Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
 
-                ) {
+                    ) {
                     TabRow(
                         selectedTabIndex = pagerState.currentPage,
                         backgroundColor = Color.Transparent,
-
                         modifier = Modifier
                             .background(color = Color.Transparent)
                             .clip(RoundedCornerShape(30.dp))
@@ -327,9 +330,13 @@ fun DashboardScreen(
                                     .height(0.dp)
                             )
                         },
-
-
-                        ) {
+                        divider = {
+                            Divider(
+                                color = Color.Transparent,
+                                thickness = 0.dp
+                            )
+                        }
+                    ) {
                         tabItems.forEachIndexed { index, title ->
                             val color = remember {
                                 Animatable(Denim)
@@ -379,7 +386,7 @@ fun DashboardScreen(
                             )
                     ) {
                         Image(
-                            painter = painterResource(id =R.drawable.search),
+                            painter = painterResource(id = R.drawable.search),
                             contentDescription = "search",
                             modifier = Modifier
                                 .size(36.dp)
@@ -388,14 +395,14 @@ fun DashboardScreen(
                     }
 
                 }
-                Spacer(modifier = Modifier.size(28.dp))
+                Spacer(modifier = Modifier.size(24.dp))
                 HorizontalPager(
                     count = tabItems.size,
                     state = pagerState,
                     modifier = Modifier
                         .background(color = Color.Transparent)
                         .fillMaxWidth()
-                        .height(850.dp)
+                        .height(800.dp)
                 ) { index ->
                     when (index) {
                         0 -> TopLinkScreen()
@@ -430,7 +437,7 @@ fun DashboardScreen(
                         style = MaterialTheme.typography.titleSmall,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .padding(14.dp,5.dp),
+                            .padding(14.dp, 5.dp),
                         color = textPrimary
 
                     )
@@ -449,7 +456,7 @@ fun DashboardScreen(
                         .background(
                             color = primaryBackground
                         )
-                        .padding(12.dp,15.dp),
+                        .padding(12.dp, 12.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
@@ -483,7 +490,7 @@ fun DashboardScreen(
                         .background(
                             color = primaryBackground
                         )
-                        .padding(12.dp,15.dp),
+                        .padding(12.dp, 12.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {

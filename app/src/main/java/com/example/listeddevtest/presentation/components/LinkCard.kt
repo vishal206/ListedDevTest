@@ -67,14 +67,14 @@ fun LinkCard(
         Row(
             modifier= Modifier
                 .fillMaxWidth()
-                .padding(20.dp,20.dp,20.dp,20.dp),
+                .padding(15.dp,20.dp,20.dp,20.dp),
 
         ) {
             Image(
                 painter = rememberAsyncImagePainter(model = image),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(64.dp)
+                    .size(48.dp)
                     .clip(RoundedCornerShape(4.dp))
                     .background(color= Color.Transparent)
                     .fillMaxWidth()

@@ -11,11 +11,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.listeddevtest.presentation.dashboard.DashboardViewModel
+import com.example.listeddevtest.presentation.ui.theme.appPrimary
+import com.example.listeddevtest.presentation.ui.theme.appSecondary
+import com.example.listeddevtest.presentation.ui.theme.textSecondary
 import com.madrapps.plot.line.DataPoint
 import com.madrapps.plot.line.LineGraph
 import com.madrapps.plot.line.LinePlot
@@ -65,13 +71,19 @@ fun Graph(
                 listOf(
                     LinePlot.Line(
                         dataPoints,
-                        LinePlot.Connection(Color.Magenta, 2.dp),
-                        LinePlot.Intersection(Color.Magenta, 2.dp),
-                        LinePlot.Highlight(Color.Magenta, 2.dp),
-                        LinePlot.AreaUnderLine(Color.Magenta, 0.3f),
+                        LinePlot.Connection(appPrimary, 2.dp),
+                        LinePlot.Intersection(appPrimary, 0.dp),
+                        LinePlot.Highlight(appPrimary, 2.dp),
+                        LinePlot.AreaUnderLine(
+                            appPrimary,
+                            0.15f
+                        ),
                     )
                 ),
-
+                grid = LinePlot.Grid(
+                    color= appSecondary,
+                    lineWidth = 0.4.dp
+                ),
                 xAxis = LinePlot.XAxis(
                     stepSize = 20.dp,
                     steps = 12,
@@ -79,7 +91,11 @@ fun Graph(
                 ){ min, offset, max ->
                     for(i in 0 until 12){
                         androidx.compose.foundation.layout.Column() {
-                            Text(text = monthList.get(i))
+                            Text(
+                                text = monthList.get(i),
+                                color= textSecondary,
+                                fontSize = TextUnit(10.0F, TextUnitType.Sp)
+                            )
                         }
                     }
                 },
